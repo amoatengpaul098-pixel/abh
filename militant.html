@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAJESTY CYBER COMMAND</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #050000;
+    color: #ff2929;
+    font-family: Consolas, monospace;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        transparent 0px,
+        transparent 3px,
+        rgba(255,0,0,.07) 4px
+    );
+    pointer-events: none;
+}
+
+header {
+    padding: 15px 25px;
+    border-bottom: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    background: #130000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 7px;
+    text-shadow: 0 0 15px red;
+}
+
+.warning {
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: .2; }
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 15px;
+    padding: 20px;
+}
+
+.panel {
+    background: #100000;
+    border: 1px solid #850000;
+    padding: 15px;
+    box-shadow: 0 0 12px #400000;
+}
+
+h3 {
+    color: #ff5555;
+    border-bottom: 1px solid #600000;
+    padding-bottom: 8px;
+}
+
+.radar {
+    width: 180px;
+    height: 180px;
+    border: 2px solid red;
+    border-radius: 50%;
+    margin: 20px auto;
+    background:
+      repeating-radial-gradient(
+        circle,
+        transparent 0 25px,
+        #6d0000 26px 27px
+      );
+    position: relative;
+    overflow: hidden;
+}
+
+.radar::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom left;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255,0,0,.7)
+    );
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    to { transform: rotate(360deg); }
+}
+
+.terminal {
+    height: 230px;
+    overflow: hidden;
+    background: #020202;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #ff5555;
+}
+
+.stat {
+    margin: 18px 0;
+}
+
+.bar {
+    height: 7px;
+    background: #350000;
+    margin-top: 8px;
+}
+
+.fill {
+    height: 100%;
+    background: red;
+    width: 75%;
+}
+
+.main {
+    text-align: center;
+    padding: 15px;
+}
+
+input {
+    padding: 13px;
+    background: black;
+    color: white;
+    border: 1px solid red;
+    text-align: center;
+}
+
+button {
+    padding: 13px 20px;
+    background: darkred;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: red;
+}
+
+#message {
+    margin: 15px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background: #130000;
+    border-top: 1px solid red;
+    font-size: 12px;
+}
+
+@media(max-width:700px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+        height: 75vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">MAJESTY</div>
+    <div class="warning">● CYBER ALERT</div>
+</header>
+
+<div class="dashboard">
+
+    <div class="panel">
+        <h3>RADAR SYSTEM</h3>
+        <div class="radar"></div>
+        <p>RADAR: SIMULATED</p>
+        <p>STATUS: ACTIVE</p>
+    </div>
+
+    <div class="panel">
+        <h3>COMMAND TERMINAL</h3>
+        <div class="terminal" id="terminal">
+            MAJESTY COMMAND CENTRE<br>
+            Initializing visual simulation...<br>
+            Loading virtual security modules...<br>
+            Radar system initialized...<br>
+            Monitoring simulated environment...<br>
+            WARNING: DEMONSTRATION MODE ACTIVE...
+        </div>
+
+        <div class="main">
+            <h2>MAJESTY SECURITY BREACH</h2>
+            <p>ENTER SECRET PHRASE TO RESTORE DISPLAY</p>
+
+            <input id="password"
+            placeholder="ENTER SECRET PHRASE">
+
+            <button onclick="unlock()">RESTORE</button>
+
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>SYSTEM MONITOR</h3>
+
+        <div class="stat">
+            CPU SIMULATION
+            <div class="bar"><div class="fill"></div></div>
+        </div>
+
+        <div class="stat">
+            NETWORK SIMULATION
+            <div class="bar"><div class="fill" style="width:60%"></div></div>
+        </div>
+
+        <div class="stat">
+            SECURITY STATUS
+            <p style="color:red">SIMULATION ACTIVE</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    MAJESTY CYBER COMMAND | VISUAL SIMULATION | PRESS ESC TO EXIT
+</footer>
+
+<script>
+const terminal = document.getElementById("terminal");
+
+const messages = [
+    "[SIM] Initializing virtual security scan...",
+    "[SIM] Checking fictional network nodes...",
+    "[SIM] Radar sweep completed...",
+    "[SIM] Analyzing demonstration data...",
+    "[SIM] Loading command interface...",
+    "[SIM] MAJESTY monitoring active..."
+];
+
+let index = 0;
+
+const timer = setInterval(() => {
+    terminal.innerHTML += "<br>" +
+        messages[index];
+
+    index = (index + 1) % messages.length;
+    terminal.scrollTop = terminal.scrollHeight;
+}, 1200);
+
+function unlock() {
+    const value = document.getElementById("password")
+        .value.trim().toUpperCase();
+
+    if (value === "I HATE YOU") {
+        clearInterval(timer);
+
+        document.body.innerHTML = `
+            <div style="text-align:center;margin-top:20%;
+            color:red;font-family:Consolas">
+                <h1 style="font-size:55px">MAJESTY</h1>
+                <h2 style="color:white">DISPLAY RESTORED</h2>
+                <p>SIMULATION COMPLETED</p>
+            </div>
+        `;
+    } else {
+        document.getElementById("message").innerText =
+            "ACCESS DENIED — INCORRECT PHRASE";
+    }
+}
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        clearInterval(timer);
+        document.body.innerHTML =
+        "<h1 style='color:red;text-align:center;margin-top:20%'>SIMULATION EXITED</h1>";
+    }
+});
+</script>
+
+</body>
+</html>

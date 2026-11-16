@@ -1,0 +1,9 @@
+{
+  "name": "African Business Hub",
+  "short_name": "ABH",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#178b58",
+  "background_color": "#101714",
+  "description": "Connect, trade and grow across Africa."
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Request a Quote | ABH</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="color-strip">
+            <i></i>
+            <i> </i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+        <header class="topbar">
+            <a href="home.html"
+            >
+            ←
+        </a>
+        <div>
+            <span class="eyebrow green">
+                AFRICAN BUSINESS HUB
+            </span>
+            <h2 style="margin:3px 0">
+                Request a Quote
+            </h2>
+        </div>
+        <a href="notifications.html">
+            🔔
+        </a>
+    </header>
+    <main class="app">
+        <p style="color:#66746d;max-width:760px">
+            Create a professional request and invite suppliers to respond.
+        </p>
+        <div class="form-card">
+            <form class="form-grid" onsubmit="event.preventDefault();
+            document.getElementById('rfqDone')
+            .hidden=false">
+            <label>
+                What do you need?
+                <input required placeholder="e.g. 500 branded T-shirts">
+            </label>
+            <label>
+                Category
+                <select>
+                    <option>
+                        Manufacturing
+                    </option>
+                    <option>
+                        Technology
+                    </option>
+                    <option>
+                        Logistics
+                    </option>
+                    <option>
+                        Professional services
+                    </option>
+                </select>
+            </label>
+            <label>
+                Budget range
+                <input placeholder="e.g. GH₵5,000–GH₵10,000">
+            </label>
+            <label>
+                Delivery location
+                <input placeholder="City, country">
+            </label>
+            <label class="full">
+                Requirements
+                <textarea required placeholder="Describe quantity, quality, deadline and any important requirements">
+
+                </textarea>
+            </label>
+            <div class="full">
+                
+                <button class="btn green-btn">
+                    Publish request
+                </button>
+            </div>
+        </form>
+        <div id="rfqDone" class="colorful-card" hidden>
+            Request prepared successfully. Connect this form to your Firebase project to publish it to your live RFQ collection.
+        </div>
+    </div>
+</main>
+<nav class="bottom">
+    <a href="home.html">
+        ⌂
+        <small>
+            Home
+        </small>
+    </a>
+    <a href="opportunities.html">
+        🚀
+        <small>
+            Opportunities
+        </small>
+    </a>
+    <a href="marketplace.html">
+        🛍
+        <small>
+            Market
+        </small>
+    </a>
+    <a href="chat.html">
+        💬
+        <small>
+            Chat
+        </small>
+    </a>
+    
+    <a href="profile.html">
+        ◎
+        <small>
+            Profile
+        </small>
+    </a>
+</nav>
+</body>
+</html>

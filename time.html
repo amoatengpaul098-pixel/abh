@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> CYBER DEFENSE SIMULATOR</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050000;
+    color: #ff2020;
+    font-family: Consolas, monospace;
+    overflow: hidden;
+}
+
+.container {
+    padding: 30px;
+    height: 100vh;
+    border: 3px solid #9b0000;
+    box-shadow: inset 0 0 40px #500000;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid red;
+    padding-bottom: 15px;
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px red;
+}
+
+.alert {
+    animation: blink 1s infinite;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    50% { opacity: 0.2; }
+}
+
+.main {
+    text-align: center;
+    margin-top: 70px;
+}
+
+h1 {
+    font-size: 55px;
+    text-shadow: 0 0 20px red;
+}
+
+.terminal {
+    background: #100000;
+    border: 1px solid #a00000;
+    padding: 20px;
+    width: 80%;
+    margin: 30px auto;
+    height: 150px;
+    text-align: left;
+    overflow: hidden;
+    color: #ff4444;
+}
+
+input {
+    padding: 15px;
+    background: black;
+    border: 1px solid red;
+    color: white;
+    outline: none;
+    text-align: center;
+}
+
+button {
+    padding: 15px 25px;
+    background: #900000;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: red;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: #777;
+    font-size: 12px;
+}
+
+#message {
+    margin-top: 20px;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="screen">
+
+<div class="header">
+    <div class="logo">BLACK HAT UNIT</div>
+    <div class="alert">● SIMULATED ALERT</div>
+</div>
+
+<div class="main">
+
+<h1>WE HACK YOUR MACHINE </h1>
+
+<p>BACK HAT UNIT CYBER SYSTEM</p>
+
+<div class="terminal" id="terminal">
+SIMULATION INITIALIZED...<br>
+Loading visual interface...<br>
+Starting simulated network scan...<br>
+Security monitoring active...<br>
+WARNING: SIMULATION MODE ACTIVE...<br>
+We will you and your family...<br>
+Don't try to run...<br>
+WE work with the FBI...<br>
+We like to watch you die...<br>
+We show no mercy...<br>
+We are watching you...<br>
+Try to escape...<br>
+Attempting to restore display...<br>
+HACKING ATTEMPT DETECTED...<br>
+We will find you...<br>
+Run while you can...<br>
+Run...<br>
+Run...<br>
+Run...<br>
+...//1/;]]];-pp';;;!@#$%^7**)______484444$%%^&<br>
+DIE...
+</div>
+
+<p>ENTER SECRET PHRASE TO RESTORE DISPLAY</p>
+
+<input id="password" placeholder="SECRET PHRASE">
+
+<button onclick="unlock()">DIE</button>
+
+<div id="message"></div>
+
+</div>
+
+<div class="footer">
+FBI in controll
+</div>
+
+</div>
+
+<script>
+const terminal = document.getElementById("terminal");
+
+const logs = [
+"Scanning simulated network...",
+"Checking virtual security layers...",
+"Analyzing fictional data packets...",
+"Running visual security diagnostics...",
+"Monitoring simulated system status...",
+"MAJESTY simulation running..."
+];
+
+let index = 0;
+
+const timer = setInterval(() => {
+    terminal.innerHTML += "<br>" + logs[index];
+    index = (index + 1) % logs.length;
+    terminal.scrollTop = terminal.scrollHeight;
+}, 1800);
+
+function unlock() {
+    const phrase = document.getElementById("password").value;
+
+    if (phrase.trim().toUpperCase() === "I HATE YOU") {
+        clearInterval(timer);
+
+        document.getElementById("screen").innerHTML =
+        "<div style='text-align:center;margin-top:20%;'>" +
+        "<h1>MAJESTY</h1>" +
+        "<h2 style='color:white'>DISPLAY RESTORED</h2>" +
+        "<p>SIMULATION COMPLETED</p></div>";
+    } else {
+        document.getElementById("message").innerText =
+        "INVALID PHRASE";
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        clearInterval(timer);
+        document.body.innerHTML =
+        "<h1 style='text-align:center;margin-top:20%;color:red'>SIMULATION EXITED</h1>";
+    }
+});
+</script>
+
+</body>
+</html>
+

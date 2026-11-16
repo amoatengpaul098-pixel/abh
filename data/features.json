@@ -1,0 +1,29 @@
+{
+  "ecosystem": [
+    "Marketplace",
+    "Orders",
+    "Wallet",
+    "Connections",
+    "Messaging",
+    "Stories",
+    "Communities",
+    "Events",
+    "Business Dashboard",
+    "Owner Dashboard",
+    "Analytics",
+    "Trust & Safety",
+    "Notifications",
+    "Saved Items",
+    "Search & Discovery"
+  ],
+  "future_integrations": [
+    "Firebase Authentication",
+    "Firestore",
+    "Firebase Storage",
+    "Firebase Cloud Messaging",
+    "Firebase App Check",
+    "Cloud Functions",
+    "Licensed payment provider",
+    "Maps/location provider"
+  ]
+}
